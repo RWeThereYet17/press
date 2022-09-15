@@ -17,7 +17,7 @@ Automate pressing a key using powershell.
 1. Open powershell.
 1. Run `press`.
 1. Minimize powershell and go on with your day.
-1. When finished, hold `ctrl` and press `c` (`ctrl+c`).
+1. When finished, press `ctrl+c` (hold `ctrl` and then press `c`).
 
 ### Custom Usage
 

@@ -12,6 +12,9 @@ function press {
 		.PARAMETER interval
 		The interval (in seconds) to wait before pressing the key again. Defaults to 300 seconds or 5 minutes.
 
+        .PARAMETER message
+        Should a message be downloaded and printed to the screen before starting key presses? Any number besides 0 enables this. Default is 1 (enabled).
+
 		.EXAMPLE
 		PS> press
 
@@ -23,15 +26,30 @@ function press {
 
         .EXAMPLE
 		PS> press -key F15 -interval 300
+
+        .EXAMPLE
+        PS> press -message 0
 	#>
 	param (
 		[Parameter()][string] $key = "F15",
-		[Parameter()][int] $interval = 300
+		[Parameter()][int] $interval = 300,
+        [Parameter()][int] $message = 1
 	)
-	$start_time = Get-Date
-	Write-Output "Press ctrl+c to quit."
-	$times = 0
-	$wshell = New-Object -ComObject wscript.shell;
+
+    if ($message -ne 0) {
+        try {
+            $result = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/RWeThereYet17/press/main/message.txt"
+            Write-Output $result.Content
+        }
+        catch {
+            Write-Output "Couldn't download message."
+        }
+    }
+    
+    Write-Output "Press ctrl+c to quit."
+    $times = 0
+    $wshell = New-Object -ComObject wscript.shell;
+    $start_time = Get-Date
 
 	try {
 		while ($true) {
