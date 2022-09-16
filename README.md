@@ -23,7 +23,7 @@ Automate pressing a key using powershell.
 
 Any key can be pressed at any interval. For example `press a 5` will press the "a" key every 5 seconds.
 
-## How to Get Help Information.
+## How to Get Help Information
 
 1. Open powershell.
 1. Run `Get-Help press -Detailed`.
