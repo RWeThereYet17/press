@@ -10,7 +10,7 @@ function press {
         The key to press repeatedly. Defaults to the f15 key ("F15").
 
         .PARAMETER interval
-        The interval (in seconds) to wait before pressing the key again. Defaults to 300 seconds or 5 minutes.
+        The interval (in seconds) to wait before pressing the key again. Defaults to 60 seconds or 1 minute.
 
         .PARAMETER message
         Should a message be downloaded and printed to the screen before starting key presses? Any number besides 0 enables this. Default is 1 (enabled).
@@ -32,7 +32,7 @@ function press {
     #>
     param (
         [Parameter()][string] $key = "F15",
-        [Parameter()][int] $interval = 300,
+        [Parameter()][int] $interval = 60,
         [Parameter()][int] $message = 1
     )
 
